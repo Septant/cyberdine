@@ -1,0 +1,69 @@
+<mat-card class="form-template">
+  <mat-card-header class="form-header-template">
+    <mat-card-title>Регистрация</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form class="form-content-template" [formGroup]="signUpForm">
+      <mat-form-field>
+        <mat-label>ФИО</mat-label>
+        <input
+          matInput
+          placeholder="Иван Иванович Иванов"
+          formControlName="fullName"
+        />
+        <mat-error>
+          @if(signUpForm.get('fullName')?.hasError('required')) {
+          <span>Введите ФИО</span> }
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Телефон</mat-label>
+        <input
+          matInput
+          placeholder="+7-800-000-00-00"
+          formControlName="phone"
+        />
+        <mat-error>
+          @if(signUpForm.get('phone')?.hasError('required')) {
+          <span>Введите номер телефона</span>
+          } @else if (signUpForm.get('phone')?.hasError('invalidPhone')) {
+          <span
+            >Введите корректный номер (Россия: +7..., Беларусь: +375...)</span
+          >}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>email</mat-label>
+        <input
+          matInput
+          placeholder="example@mail.com"
+          formControlName="email"
+        />
+        <mat-error>
+          @if(signUpForm.get('email')?.hasError('required')) {
+          <span>Введите email</span> } @else if
+          (signUpForm.get('email')?.hasError('email')) {
+          <span>email не соответствует формату</span>
+          }
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Организация</mat-label>
+        <input
+          matInput
+          placeholder="ООО 'Рога и копыта'"
+          formControlName="organization"
+        />
+        <mat-error>
+          @if(signUpForm.get('organization')?.hasError('required')) {
+          <span>Введите название компании</span> }
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button matButton="filled" (click)="signUp()">Зарегистрироваться</button>
+  </mat-card-actions>
+</mat-card>

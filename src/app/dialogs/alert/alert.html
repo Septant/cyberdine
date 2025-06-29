@@ -1,0 +1,19 @@
+<mat-card
+  style="
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  "
+>
+  <mat-card-header>
+    <mat-card-title>{{data.title}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{data.message}}</p>
+  </mat-card-content>
+  <mat-dialog-actions align="end">
+    <button mat-stroked-button mat-dialog-close>Закрыть</button>
+  </mat-dialog-actions>
+</mat-card>

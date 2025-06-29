@@ -1,0 +1,18 @@
+<div class="header-template">
+  @if(appManager.isAuthorized()) {
+  <app-notifications class="notifications-icon"></app-notifications>
+  }
+  <button
+    matIconButton
+    class="profile-button"
+    [matMenuTriggerFor]="menu"
+  ></button>
+  <mat-menu #menu="matMenu">
+    @if(!(appManager.isAuthorized())) {
+    <button mat-menu-item (click)="openLoginModal()">Войти</button>
+    <button mat-menu-item (click)="openSignUpModal()">Регистрация</button>
+    } @else {
+    <button mat-menu-item (click)="logout()">Выйти</button>
+    }
+  </mat-menu>
+</div>

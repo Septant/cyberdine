@@ -1,0 +1,29 @@
+<mat-card class="form-template">
+  <mat-card-header class="form-header-template">
+    <mat-card-title>Вход</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form class="form-content-template" [formGroup]="signInForm">
+      <mat-form-field>
+        <mat-label>email</mat-label>
+        <input
+          matInput
+          placeholder="example@mail.com"
+          formControlName="email"
+        />
+        <mat-error>
+          @if(signInForm.get('email')?.hasError('required')) {
+          <span>Введите email</span> } @else if
+          (signInForm.get('email')?.hasError('email')) {
+          <span>email не соответствует формату</span>
+          }
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button matButton="filled" (click)="login()">Войти</button>
+  </mat-card-actions>
+</mat-card>

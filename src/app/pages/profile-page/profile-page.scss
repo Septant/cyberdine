@@ -1,0 +1,42 @@
+.profile-page-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  background-color: rgb(247, 250, 238);
+}
+
+.user-block-template {
+  padding: 5rem 5rem;
+  background-color: rgb(221, 235, 235);
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-;
+  align-items: center;
+}
+
+.create-order-button {
+  margin-top: 5%;
+  height: 4rem;
+  width: 10rem;
+}
+
+.last-order-section {
+  margin: 20px 0;
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+
+.no-order {
+  color: #666;
+  font-style: italic;
+}
+
+.order-info {
+  p {
+    margin: 5px 0;
+  }
+}

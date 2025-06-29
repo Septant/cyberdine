@@ -1,0 +1,98 @@
+<mat-card class="create-order-template">
+  <button
+    mat-icon-button
+    class="close-button"
+    (click)="closeModal()"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+  <mat-card-header>
+    <mat-card-title>Заявка на пропуск</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="form">
+      <div class="form-grid">
+        <!-- Только для чтения поля -->
+        <mat-form-field appearance="outline">
+          <mat-label>ФИО</mat-label>
+          <input
+            class="cursor-banned"
+            matInput
+            formControlName="fullName"
+            readonly
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Организация</mat-label>
+          <input
+            class="cursor-banned"
+            matInput
+            formControlName="organization"
+            readonly
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Телефон</mat-label>
+          <input
+            class="cursor-banned"
+            matInput
+            formControlName="phone"
+            readonly
+          />
+        </mat-form-field>
+
+        <!-- Поле причины -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Причина заявки</mat-label>
+          <textarea
+            matInput
+            formControlName="reason"
+            rows="4"
+            placeholder="Опишите причину заявки (максимум 500 символов)"
+            maxlength="500"
+          ></textarea>
+          <mat-hint align="end">{{reasonCharacterCount}} / 500</mat-hint>
+          <mat-error>
+            @if(form.get('reason')?.hasError('required')) { Поле обязательно для
+            заполнения } @if(form.get('reason')?.hasError('maxlength')) {
+            Превышено максимальное количество символов }
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Поле даты -->
+        <mat-form-field appearance="outline">
+          <mat-label>Срок действия</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            formControlName="expirationDate"
+            placeholder="ДД.ММ.ГГГГ"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker [startAt]="minDate"></mat-datepicker>
+          <mat-error>
+            @if(form.get('expirationDate')?.hasError('required')) { Поле
+            обязательно для заполнения } @if
+            (form.get('expirationDate')?.hasError('pastDate')) { Дата не может
+            быть раньше текущего дня}
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Чекбокс уведомлений -->
+        <mat-checkbox formControlName="notify" class="checkbox">
+          Уведомлять о статусе заявки
+        </mat-checkbox>
+      </div>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button matButton="filled" (click)="onSubmit()">Отправить</button>
+  </mat-card-actions>
+</mat-card>

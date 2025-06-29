@@ -1,0 +1,32 @@
+@if(lastOrder$ | async; as lastOrder) {
+<div class="profile-page-container">
+  <div class="user-block-template">
+    <button
+      matButton="filled"
+      (click)="createOrder()"
+      class="create-order-button"
+      [disabled]="!!lastOrder && (lastOrder.status !== 'отклонена' && lastOrder.status !== 'пропуск выдан')"
+    >
+      Создать заявку
+    </button>
+    <div class="last-order-section">
+      <h3>Последняя заявка</h3>
+      @if(!lastOrder) {
+      <p class="no-order">Отсутствует</p>
+      } @else {
+      <div class="order-info">
+        <p><strong>Статус:</strong> {{ lastOrder.status }}</p>
+        <p>
+          <strong>Дата создания:</strong> {{ lastOrder.createdAt |
+          date:'dd.MM.yyyy HH:mm' }}
+        </p>
+        <p><strong>ID:</strong> {{ lastOrder.id }}</p>
+        <button matFab (click)="updateStatus()">
+          <mat-icon>refresh</mat-icon>
+        </button>
+      </div>
+      }
+    </div>
+  </div>
+</div>
+}

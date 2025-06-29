@@ -1,0 +1,41 @@
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Уведомления">
+  <!--  [disabled]="notifications.length === 0" -->
+  <mat-icon
+    [matBadge]="unreadCount"
+    matBadgeColor="warn"
+    [matBadgeHidden]="unreadCount === 0"
+  >
+    notifications
+  </mat-icon>
+</button>
+
+<mat-menu #menu="matMenu" class="notification-menu">
+  <div class="menu-header">
+    <h3>Уведомления</h3>
+    <button mat-icon-button (click)="markAllAsRead()">
+      <mat-icon>done_all</mat-icon>
+    </button>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="notification-list">
+    <mat-list dense>
+      @if(notificationsService.getNotifications() | async; as notifications) {
+      @for(notification of notifications; track $index) {
+      <mat-list-item>
+        <br />
+        <div class="notification-message">{{ notification.message }}</div>
+        <div mat-line class="notification-time">
+          {{ notification.createdAt | date:'dd.MM.yyyy HH:mm' }}
+        </div>
+      </mat-list-item>
+
+      } @if(notifications.length === 0) {
+      <mat-list-item>
+        <div mat-line class="no-notifications">Нет новых уведомлений</div>
+      </mat-list-item>
+      } }
+    </mat-list>
+  </div>
+</mat-menu>

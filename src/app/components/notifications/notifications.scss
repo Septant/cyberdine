@@ -1,0 +1,42 @@
+.notification-menu {
+  width: 350px;
+  max-height: 60vh;
+  padding: 0;
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background: #f5f5f5;
+}
+
+.menu-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.notification-list {
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.notification-message {
+  font-size: 14px;
+  white-space: normal;
+  line-height: 1.4;
+}
+
+.notification-time {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.54);
+  margin-top: 4px;
+}
+
+.no-notifications {
+  color: rgba(0, 0, 0, 0.54);
+  text-align: center;
+  padding: 16px;
+}

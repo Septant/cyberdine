@@ -1,0 +1,56 @@
+.admin-container {
+  padding: 24px;
+
+  h1 {
+    margin-bottom: 24px;
+    font-size: 24px;
+    font-weight: 500;
+  }
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 500;
+
+  &.status-processing {
+    background-color: #e3f2fd;
+    color: #1976d2;
+  }
+
+  &.status-approval {
+    background-color: #fff8e1;
+    color: #ff8f00;
+  }
+
+  &.status-ready {
+    background-color: #e8f5e9;
+    color: #388e3c;
+  }
+
+  &.status-rejected {
+    background-color: #ffebee;
+    color: #d32f2f;
+  }
+
+  &.status-completed {
+    background-color: #f3e5f5;
+    color: #7b1fa2;
+  }
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+.inline-spinner {
+  display: inline-block;
+  margin-left: 8px;
+}
