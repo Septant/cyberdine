@@ -1,59 +1,43 @@
-# Cyberdine
+<p align="center">
+  <a href="https://angular.io" target="blank"> <img src="https://angular.io/assets/images/logos/angular/angular.svg" width="200" alt="Angular logo"> </a>
+</p>
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.2.
+# Frontend
 
-## Development server
+Тестовое задание для Парадокс. <br>
+Node version 24.00.0. <br>
+Версия Angular: [Angular CLI](https://github.com/angular/angular-cli) version 20.0.2.
 
-To start a local development server, run:
+### Сторонние ресурсы
+В проекте используются [Angular-material](https://material.angular.dev/), [socket-io](https://www.npmjs.com/package/socket.io-client).
 
-```bash
-ng serve
-```
+### Режим разработки
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+`ng serve`: Запуск в режиме разработчика. Рабочий порт: `http://localhost:4200/`. 
 
-## Code scaffolding
+### Сборка 
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+`ng build`: Сборка проекта. Артефакты собираются в папке `dist/`. Содержимое папки dist/frontend необходимо скопировать в `dist` backend под именем `client` после сборки backend-проекта.
 
-```bash
-ng generate component component-name
-```
+# Функционал
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 1. Админ-панель `/admin`
 
-```bash
-ng generate --help
-```
+Страница доступная для пользователя с эл. почтой `admin@admin.admin`. Содержит в себе таблицу активных заявок на пропуск с возможностью модерации статуса заявки. Таблица обновляется раз в минуту.
 
-## Building
+## 2. Страница пользователя `/profile`
 
-To build the project run:
+Страница с кнопкой открывающей форму подачи заявки. В форме есть возможность подписки на уведомления.
+При подписке статус заявления отслеживается по сокету и обновляется в реальном времени (при находящемся на сайте пользователе). Кроме того, в этом случае пользователю приходит уведомление (кнопка с колокольчиком в header'е).
 
-```bash
-ng build
-```
+# Структура:
+1. [services](/src/app/services): сервисы api и хранилища
+2. [layout](/src/app/layout): Общие элементы страницы. В данном проекте - header;
+3. [models](/src/app/meta): интерфейсы;
+4. [components](/src/app/components): используемые компоненты;
+5. [dialogs](src/app/dialogs): служебные модальные окна, втч связанные с авторизацией;
+6. [pages](src/app/pages): компоненты страниц;
+7. [utils](src/app/utils): вспомогательный функционал (guards, interceptors, custom validators);
+8. app.* - корень приложения;
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
