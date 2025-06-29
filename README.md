@@ -40,4 +40,5 @@ Node version 24.00.0. <br>
 7. [utils](src/app/utils): вспомогательный функционал (guards, interceptors, custom validators);
 8. app.* - корень приложения;
 
+Для эмуляции более одного пользователя в консоли вызвать в папке проекта ng serve --port номер свободного порта
 
