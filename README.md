@@ -4,7 +4,7 @@
 
 # Frontend
 
-Тестовое задание для Парадокс. <br>
+Тестовое задание от 2x.06.2025 <br>
 Node version 24.00.0. <br>
 Версия Angular: [Angular CLI](https://github.com/angular/angular-cli) version 20.0.2.
 
